@@ -2,3 +2,7 @@ body{
     background-image: url(./src/assets/compute-ea4c57a4.png);
     background-attachment: fixed;
 }
+
+.title{
+ outline: black solid;
+}

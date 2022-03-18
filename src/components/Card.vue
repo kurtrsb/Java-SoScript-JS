@@ -15,7 +15,7 @@ defineProps({
 
 <template>
 <div class="card text-white bg-dark" style="width: 20rem; margin: 2%;" >
-    <img  class="card-img-top" :src="cardImg" alt={{cardImgAlt}} >
+    <img  class="card-img-top" :src="cardImg" :alt="cardImgAlt" >
     <div class="card-body ">
         <h5 class="card-title">{{cardTitle}}</h5>
         <p class="card-text">{{cardText}}</p>
