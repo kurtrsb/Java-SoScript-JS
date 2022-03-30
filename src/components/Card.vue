@@ -8,7 +8,8 @@ export default {
         cardImg: String,
         cardImgAlt: String,
         cardPrice: Number,
-        cardType: String
+        cardType: String,
+        cardLink: String
     }
 }
 
@@ -25,6 +26,9 @@ export default {
         <li class="text-white bg-dark list-group-item">Type : {{cardType}}</li>
         <li class="text-white bg-dark list-group-item">Prix : {{cardPrice}}€</li>
     </ul>
+    <a :href="cardLink">
+   <button type="button" class="btn btn-secondary" style="margin-bottom: 15px;">Plus d'information</button>
+   </a>
 </div>
 </template>
 

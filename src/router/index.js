@@ -15,6 +15,11 @@ import Create from '../pages/Create.vue'
         name: 'Home',
         component: Home
     },
+    {
+        path: '/home/:id',
+        name: 'Info Carte',
+        component: Home
+    },
     
   ]
 
