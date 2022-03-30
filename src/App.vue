@@ -4,10 +4,6 @@
 
 import Card from './components/Card.vue';
 import axios from 'axios';
-import { computed } from '@vue/runtime-core';
-
-
-
 
 export default {
   components:{
@@ -16,17 +12,16 @@ export default {
   },
     data: () => ({
     json: [],
+    alt: String,
   }),
 
  methods:{
      async preload() {
         try {
           const response = await axios.post('http://127.0.0.1:3001/db')
-          /*let parsed = JSON.parse(response.data.map);
-          this.json = response.data.map( item => ({name:item.name}));*/
-          
+          this.json=response.data
+          this.alt="Photo de "
 
-          console.log(response.data)
           
         } catch(err) {
           
@@ -35,9 +30,10 @@ export default {
      }
  },
  mounted(){
-  console.log("test start")
+  
   this.preload()
  },
+
   computed:{
     done() {
 
@@ -53,18 +49,15 @@ export default {
 </script>
 
 <template>
-  <div class="row row-cols-1 row-cols-md-3 g-3 " style="display: flex; justify-content: center;  margin-left: 2%;margin-right: 2% ;">
-    <Card
-      cardTitle= {{done}}
-      cardImg= "/src/assets/stromoyen.jpg"
-      cardImgAlt="Photo de Storomoyen"
-      cardText="description complete"
-      cardType="Chanteur"
-      cardPrice="5,46"
+  <div  class="row row-cols-1 row-cols-md-3 g-3 " style="display: flex; justify-content: center;  margin-left: 2%;margin-right: 2% ;" v-for="item in json" :key="item.name">
+    <Card 
+      :cardTitle= item.name
+      :cardImg= item.image
+      :cardImgAlt= "alt + item.name"
+      :cardText= item.desc
+      :cardType= item.type
+      :cardPrice= item.price
     />
-
-    <p>{{done}}</p>
-
     
   </div>
   
