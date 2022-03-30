@@ -1,15 +1,16 @@
-<script setup>
+<script>
 
-import {ref} from 'vue'
 
-defineProps({
-    cardTitle: String,
-    cardText: String,
-    cardImg: String,
-    cardImgAlt: String,
-    cardPrice: String,
-    cardType: String
-})
+export default {
+    props:{
+        cardTitle: String,
+        cardText: String,
+        cardImg: String,
+        cardImgAlt: String,
+        cardPrice: String,
+        cardType: String
+    }
+}
 
 </script>
 

@@ -5,9 +5,11 @@ import '../database.js'
 import {sosie} from '../database.js'
 
 export default async function (fastify, opts) {
-  /*fastify.get('/', async function (request, reply) {
-    return { root: false }
-  })*/
+
+  fastify.get('/:id', async function (request, reply) {
+    return await sosie.findByPk(request.params.id);
+  })
+
   fastify.post('/create', async function (request, reply) {
     if (!request.body?.name) {
       return reply.code(400).send('Le nom est obligatoire')
@@ -48,7 +50,6 @@ export default async function (fastify, opts) {
     })
     return "Suppresion"
   });
-
 
   fastify.post('/db', async function (request, reply){
     return await sosie.findAll()
