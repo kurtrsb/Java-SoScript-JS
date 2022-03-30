@@ -35,6 +35,10 @@ import caillouniney from "./assets/caillouniney.jpg"
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  
+
+}
+.navbar navbar-dark bg-dark{
+  position: fixed;
+  bottom: 1px;
 }
 </style>

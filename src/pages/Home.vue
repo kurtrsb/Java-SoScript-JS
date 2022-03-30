@@ -57,6 +57,7 @@ export default {
       :cardText= item.desc
       :cardType= item.type
       :cardPrice= item.price
+      :cardLink="'http://127.0.0.1:3000/home/'+item.id"
     />
 </div>
 
@@ -72,4 +73,8 @@ export default {
   margin-top: 60px;
 
 }
+.card-img-top{
+  max-height: 230px;
+}
+
 </style>
