@@ -7,7 +7,7 @@ export default {
         cardText: String,
         cardImg: String,
         cardImgAlt: String,
-        cardPrice: String,
+        cardPrice: Number,
         cardType: String
     }
 }
