@@ -24,6 +24,17 @@ export default {
 
         console.log("err",err)
         }
+     },
+     async deleteElement() {
+       try {
+            const url = "http://127.0.0.1:3001/"+this.$route.params.id
+            const response = await axios.delete(url)
+            this.$router.push({ name: 'Home' });
+            
+        } catch(err) {
+
+        console.log("err")
+        }
      }
  },
  mounted(){
@@ -40,6 +51,7 @@ export default {
 
 <template>
   <div  class="row row-cols-1 row-cols-md-3 g-3 " style="display: flex; justify-content: center;  margin-left: 2%;margin-right: 2% ;" >
+    <button class="btn btn-primary" v-on:click="deleteElement">Supprimer</button>
     <BigCard
       :cardTitle= json?.name
       :cardImg= json?.image
@@ -48,7 +60,9 @@ export default {
       :cardType= json?.type
       :cardPrice= json?.price
     />
+    
 </div>
+
 
 </template>
 

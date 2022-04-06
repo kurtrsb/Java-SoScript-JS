@@ -28,6 +28,43 @@ export default {
 
         console.log("err")
         }
+     },
+     async autoLoad() {
+        try {
+            await axios.post('http://127.0.0.1:3001/create',{
+                name: "Stromoyen",
+                desc: "pas té ou ?",
+                price: 453.01,
+                type: "Chanteur",
+                image: "/src/assets/stromoyen.jpg"
+            })
+            await axios.post('http://127.0.0.1:3001/create',{
+                name: "Lil Jeep",
+                desc: "i'm a mother f**ng scammer boy",
+                price: 5.51,
+                type: "Chanteur",
+                image: "/src/assets/liljeep.jpg"
+            })
+            await axios.post('http://127.0.0.1:3001/create',{
+                name: "Caillouniney",
+                desc: "pas té ou ?",
+                price: 453.01,
+                type: "Chanteur",
+                image: "/src/assets/stromoyen.jpg"
+            })
+            await axios.post('http://127.0.0.1:3001/create',{
+                name: "Stromoyen",
+                desc: "pas té ou ?",
+                price: 453.01,
+                type: "Chanteur",
+                image: "/src/assets/stromoyen.jpg"
+            })
+            console.log("good")
+            
+        } catch(err) {
+
+        console.log("err")
+        }
      }
  },
 }
@@ -54,7 +91,7 @@ export default {
                 </select>
                 <input type="text" class="form-control" placeholder="Prix" v-model="price" required>
                 <input type="text" class="form-control" placeholder="Image(sous forme de lien)" v-model="image" required>
-                <a href="http://127.0.0.1:3000/home">
+                <a href="http://127.0.0.1:3000/">
                 <button class="btn btn-primary" type="submit">Submit</button>
                 </a>
             </form>
