@@ -65,7 +65,7 @@ body{
 }
 
 .myarticletext{
-    padding: 10px;
+    font-size: 2vw;
 }
 
 .myclear{
@@ -84,11 +84,7 @@ body{
     .myarticleimg{
         height : 100%;
         width: 100%;
-        border-top-left-radius: 50px;
-        border-top-right-radius: 50px;
-        border-bottom-left-radius: 0px;
+        border-radius: 50px;
         
     }
-    
-
 }
