@@ -1,15 +1,13 @@
 <script>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-
-import Card from '../components/Card.vue';
 import axios from 'axios';
+import BigCard from '../components/BigCard.vue';
 
 export default {
   components:{
-    Card,
-
-  },
+    BigCard
+},
     data: () => ({
     json: [],
     alt: String,
@@ -18,14 +16,13 @@ export default {
  methods:{
      async preload() {
         try {
-          const response = await axios.post('http://127.0.0.1:3001/db')
-          this.json=response.data
-          this.alt="Photo de "
-
+            const url = "http://127.0.0.1:3001/"+this.$route.params.id
+            const response = await axios.get(url)
+            this.json=response.data
 
         } catch(err) {
 
-        console.log("err")
+        console.log("err",err)
         }
      }
  },
@@ -34,13 +31,6 @@ export default {
   this.preload()
  },
 
-  computed:{
-    done() {
-
-      return this.json
-    },
-
-},
 
 
 }
@@ -49,15 +39,14 @@ export default {
 </script>
 
 <template>
-  <div  class="row row-cols-1 row-cols-md-4 g-3 " style="display: flex; justify-content: center;  margin-left: 2%;margin-right: 2% ;" >
-    <Card v-for="item in json" :key="item.name"
-      :cardTitle= item.name
-      :cardImg= item.image
-      :cardImgAlt= "alt + item.name"
-      :cardText= item.desc
-      :cardType= item.type
-      :cardPrice= item.price
-      :cardLink="'http://127.0.0.1:3000/'+item.id"
+  <div  class="row row-cols-1 row-cols-md-3 g-3 " style="display: flex; justify-content: center;  margin-left: 2%;margin-right: 2% ;" >
+    <BigCard
+      :cardTitle= json?.name
+      :cardImg= json?.image
+      :cardImgAlt= "alt + json?.name"
+      :cardText= json?.desc
+      :cardType= json?.type
+      :cardPrice= json?.price
     />
 </div>
 

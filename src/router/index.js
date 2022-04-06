@@ -2,6 +2,7 @@
 import {createRouter, createWebHistory } from 'vue-router'
 import Home from '../pages/Home.vue'
 import Create from '../pages/Create.vue'
+import Show from '../pages/Show.vue'
 
 
  const routes= [
@@ -11,14 +12,14 @@ import Create from '../pages/Create.vue'
         component: Create
     },
     {
-        path: '/home',
+        path: '/',
         name: 'Home',
         component: Home
     },
     {
-        path: '/home/:id',
+        path: '/:id',
         name: 'Info Carte',
-        component: Home
+        component: Show
     },
     
   ]
