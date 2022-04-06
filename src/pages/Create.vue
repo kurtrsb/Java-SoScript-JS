@@ -8,8 +8,12 @@ export default {
     names: "",
     desc: "",
     price: "",
+<<<<<<< HEAD
     type: "",
     image: ""
+=======
+    type: ""
+>>>>>>> Mateo
   }),
 
  methods:{
@@ -19,8 +23,12 @@ export default {
                 name: this.names,
                 desc: this.desc,
                 price: this.price,
+<<<<<<< HEAD
                 type: this.type,
                 image: this.image
+=======
+                type: this.type
+>>>>>>> Mateo
             })
             this.$router.push({ name: 'Home' });
             
@@ -53,8 +61,15 @@ export default {
                     <option>Personnage</option>
                 </select>
                 <input type="text" class="form-control" placeholder="Prix" v-model="price" required>
+<<<<<<< HEAD
                 <input type="text" class="form-control" placeholder="Image(sous forme de lien)" v-model="image" required>
                 
+=======
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile" required>
+                    <label class="custom-file-label" for="customFile">Photo du Sosie</label>
+                </div>
+>>>>>>> Mateo
                 <a href="http://127.0.0.1:3000/home">
                 <button class="btn btn-primary" type="submit">Submit</button>
                 </a>

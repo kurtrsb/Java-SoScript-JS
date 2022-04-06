@@ -12,7 +12,11 @@ import Show from '../pages/Show.vue'
         component: Create
     },
     {
+<<<<<<< HEAD
         path: '/',
+=======
+        path: '',
+>>>>>>> Mateo
         name: 'Home',
         component: Home
     },
