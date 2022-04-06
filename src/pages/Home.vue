@@ -5,7 +5,7 @@
 import Card from '../components/Card.vue';
 import axios from 'axios';
 
-export default {
+export default {  
   components:{
     Card,
 
