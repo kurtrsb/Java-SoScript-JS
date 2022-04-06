@@ -33,7 +33,7 @@ export default {
             
         } catch(err) {
 
-        console.log("err")
+        console.log("err ", err)
         }
      }
  },
@@ -51,7 +51,6 @@ export default {
 
 <template>
   <div  class="row row-cols-1 row-cols-md-3 g-3 " style="display: flex; justify-content: center;  margin-left: 2%;margin-right: 2% ;" >
-    <button class="btn btn-primary" v-on:click="deleteElement">Supprimer</button>
     <BigCard
       :cardTitle= json?.name
       :cardImg= json?.image
@@ -59,6 +58,7 @@ export default {
       :cardText= json?.desc
       :cardType= json?.type
       :cardPrice= json?.price
+      @deleteElement='deleteElement'
     />
     
 </div>
