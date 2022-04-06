@@ -11,12 +11,12 @@ import Create from '../pages/Create.vue'
         component: Create
     },
     {
-        path: '/home',
+        path: '',
         name: 'Home',
         component: Home
     },
     {
-        path: '/home/:id',
+        path: '/:id',
         name: 'Info Carte',
         component: Home
     },

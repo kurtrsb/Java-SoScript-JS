@@ -5,7 +5,7 @@
 import Card from '../components/Card.vue';
 import axios from 'axios';
 
-export default {
+export default {  
   components:{
     Card,
 
@@ -57,7 +57,7 @@ export default {
       :cardText= item.desc
       :cardType= item.type
       :cardPrice= item.price
-      :cardLink="'http://127.0.0.1:3000/home/'+item.id"
+      :cardLink="'http://127.0.0.1:3000/'+item.id"
     />
 </div>
 
