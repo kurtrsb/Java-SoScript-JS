@@ -32,7 +32,7 @@ export default async function (fastify, opts) {
     if (body.desc) changes.desc = body.desc;
     if (body.image) changes.image = body.image;
     if (body.price) changes.price = body.price;
-    sosie.update(body, {
+    await sosie.update(body, {
       where: {
         id
       }

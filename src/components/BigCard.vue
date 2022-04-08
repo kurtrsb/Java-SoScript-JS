@@ -8,12 +8,13 @@ export default {
         cardImg: String,
         cardImgAlt: String,
         cardPrice: Number,
-        cardType: String
+        cardType: String,
+        editLink:String
     },
     methods:{
         async deleteElement(){
             this.$emit("deleteElement");
-        }
+        },
     }
 }
 
@@ -31,6 +32,7 @@ export default {
                 <li class="text-white bg-dark list-group-item">Type : {{cardType}}</li>
                 <li class="text-white bg-dark list-group-item">Prix : {{cardPrice}}€</li>
             </ul>
+            <a :href="editLink"><button class="btn btn-primary" style="margin: 20px; width: 95%;">Modifier</button></a>
             <button class="btn btn-danger" style="margin: 20px; width: 95%;" v-on:click="deleteElement">Supprimer</button>
         </div>
     </div>

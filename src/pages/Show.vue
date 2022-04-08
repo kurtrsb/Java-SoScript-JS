@@ -38,12 +38,8 @@ export default {
      }
  },
  mounted(){
-
   this.preload()
  },
-
-
-
 }
 
 
@@ -58,9 +54,9 @@ export default {
       :cardText= json?.desc
       :cardType= json?.type
       :cardPrice= json?.price
+      :editLink = "'http://127.0.0.1:3000/edit/'+this.$route.params.id"
       @deleteElement='deleteElement'
     />
-    
 </div>
 
 
