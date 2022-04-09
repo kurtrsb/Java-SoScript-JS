@@ -43,7 +43,7 @@ export default async function (fastify, opts) {
 
   fastify.delete('/:id', async function ({ params, body }, reply) {
     const id = params.id;
-    sosie.destroy({
+    await sosie.destroy({
       where: {
         id
       }

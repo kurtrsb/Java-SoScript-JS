@@ -32,6 +32,9 @@ function autoLoad() {
         <li class="nav-item active">
           <a class="nav-link" href="http://127.0.0.1:3000/create">Create</a>
         </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="http://127.0.0.1:3000/list">List</a>
+        </li>
         <a href="http://127.0.0.1:3000/">
         <button @click="autoLoad">Preload</button>
         </a>
