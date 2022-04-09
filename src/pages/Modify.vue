@@ -99,7 +99,7 @@ export default {
                     <option>Dieu</option>
                     <option>Personnage</option>
                 </select>
-                <input type="number" class="form-control" :placeholder=json?.price v-model="price">
+                <input type="number" class="form-control" step="0.01" :placeholder=json?.price v-model="price">
                 <input type="text" class="form-control" :placeholder=json?.image v-model="image">
                 <button class="btn btn-primary" type="submit">Submit</button>
             </form>

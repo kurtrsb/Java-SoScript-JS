@@ -12,7 +12,8 @@ export default {
   },
     data: () => ({
     json: [],
-    alt: String,
+    type: "",
+    
   }),
 
  methods:{
@@ -21,7 +22,7 @@ export default {
           const response = await axios.post('http://127.0.0.1:3001/db')
           this.json=response.data
           this.alt="Photo de "
-
+          this.type="Aucun"
 
         } catch(err) {
 
@@ -29,18 +30,25 @@ export default {
         }
      },
      async deleteElement(itemId) {
-         try {
-        await axios.delete('http://127.0.0.1:3001/'+itemId)
-        this.preload();
+         try{
+            await axios.delete('http://127.0.0.1:3001/'+itemId)
+            this.json.splice(this.json.map(function(e) { return e.id; }).indexOf(itemId),1)
         } catch(err) {
 
         console.log("err")
         }
-     }
+     },
+     
  },
  mounted(){
 
   this.preload()
+ },
+ computed  :{
+     tabFilter: function() {
+         return this.json.filter(i => i.type === this.type||this.type==="Aucun")
+        
+     }
  }
 }
 
@@ -48,9 +56,28 @@ export default {
 </script>
 
 <template>
+<div style="display: flex; justify-content: center;  margin-left: 2%;margin-right: 2%" >
+    <div class="card" style="width: 50%">
+        <div class="card-body">
+<form>
+    <label for="form-control">Filtre</label>
+<select class="form-control" v-model="type">
+    <option>Chanteur</option>
+    <option>Artiste</option>
+    <option>Sportif</option>
+    <option>Au Chomage</option>
+    <option>Etudiant</option>
+    <option>Dieu</option>
+    <option>Personnage</option>
+    <option selected>Aucun</option>
+</select>
+</form>
+</div>
+</div>
+</div>
 
 <ul class="list-group" style="margin-top:5%">
-<li class="list-group-item" style="text-align:left; padding-left: 20% " v-for="item in json" :key="item.name">{{item.name}}<button class="btn btn-danger" style="margin-left: 20px; width: 10%;" v-on:click="deleteElement(item.id)">Supprimer</button></li>
+<li class="list-group-item" style="text-align:left; padding-left: 20% " v-for="item in tabFilter" :key="item.id">{{item.name}} || {{item.type}}<button class="btn btn-danger" style="margin-left: 20px; width: 10%;" v-on:click="deleteElement(item.id)">Supprimer</button></li>
 </ul>
 </template>
 
