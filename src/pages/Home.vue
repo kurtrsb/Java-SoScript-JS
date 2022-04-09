@@ -12,7 +12,9 @@ export default {
   },
     data: () => ({
     json: [],
+    totPrice: 0,
     alt: String,
+    size: 0
   }),
 
  methods:{
@@ -20,14 +22,15 @@ export default {
         try {
           const response = await axios.post('http://127.0.0.1:3001/db')
           this.json=response.data
-          this.alt="Photo de "
-
-
+          for (let i = 0; i < this.json.length; i++) {
+            this.totPrice += this.json[i].price 
+          }
+        this.size = this.json.length
         } catch(err) {
 
         console.log("err")
         }
-     }
+     },
  },
  mounted(){
 
@@ -35,10 +38,7 @@ export default {
  },
 
   computed:{
-    done() {
-
-      return this.json
-    },
+    
 
 },
 
@@ -59,7 +59,16 @@ export default {
       :cardPrice= item.price
       :cardLink="'http://127.0.0.1:3000/'+item.id"
     />
+
 </div>
+    <footer class="bg-light text-center text-lg-start">
+  
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    Prix Total: {{totPrice}} Nombre de sosies: {{size}}
+    
+  </div>
+ 
+</footer>
 
 
 </template>

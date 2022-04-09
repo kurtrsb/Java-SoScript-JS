@@ -31,7 +31,7 @@ export default {
      async deleteElement(itemId) {
          try {
         await axios.delete('http://127.0.0.1:3001/'+itemId)
-        this.$router.go();
+        this.preload();
         } catch(err) {
 
         console.log("err")
