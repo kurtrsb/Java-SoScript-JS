@@ -1,39 +1,24 @@
 <script setup>
 import Card from './components/Card.vue';
-import stromoyen from "./assets/stromoyen.jpg"
-import caillouniney from "./assets/caillouniney.jpg"
 import axios from 'axios';
 
 
 function autoLoad() {
    axios.post('http://127.0.0.1:3001/create',{
-                name: "Stromoyen",
-                desc: "papa te ou ?",
-                price: 453.01,
-                type: "Chanteur",
-                image: "/src/assets/stromoyen.jpg"
+                name: "Kurt Cubain",
+                desc: "A ne pas confondre avec le pays",
+                price: 0.01,
+                type: "Dieu",
+                image: "/src/assets/kurtcubain.jpg"
             })
              axios.post('http://127.0.0.1:3001/create',{
-                name: "Lil Jeep",
-                desc: "i'm a mother f**ng scammer boy",
-                price: 5.51,
-                type: "Chanteur",
-                image: "/src/assets/liljeep.jpg"
+                name: "Mateo Pas Sacre",
+                desc: "Loins d'etre benis, pas dans le haram",
+                price: -6.66,
+                type: "Au Chomage",
+                image: "/src/assets/mateopassacre.jpg"
             })
-             axios.post('http://127.0.0.1:3001/create',{
-                name: "Caillouniney",
-                desc: "roche",
-                price: 4553.01,
-                type: "Artiste",
-                image: "/src/assets/caillouniney.jpg"
-            })
-             axios.post('http://127.0.0.1:3001/create',{
-                name: "Snoop Cat",
-                desc: "Sans assez d'argent pour le canabis vas vers le crack",
-                price: 30150.88,
-                type: "Chanteur",
-                image: "/src/assets/snoopcat.jpg"
-            })
+            
             this.$router.push({ name: 'Home' });
             
 }

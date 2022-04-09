@@ -36,6 +36,7 @@ export default {
         console.log("err ", err)
         }
      }
+     
  },
  mounted(){
   this.preload()
@@ -50,7 +51,7 @@ export default {
     <BigCard
       :cardTitle= json?.name
       :cardImg= json?.image
-      :cardImgAlt= "alt + json?.name"
+      :cardImgAlt= json?.name
       :cardText= json?.desc
       :cardType= json?.type
       :cardPrice= json?.price

@@ -24,6 +24,11 @@ export default {
             const url = "http://127.0.0.1:3001/"+this.$route.params.id
             const response = await axios.get(url)
             this.json=response.data
+            this.names = this.json.name
+            this.desc = this.json.desc
+            this.price = this.json.price
+            this.type = this.json.type
+            this.image = this.json.image
 
         } catch(err) {
 
@@ -48,7 +53,7 @@ export default {
                 name: this.names,
                 desc: this.desc,
                 price: this.price,
-                type: this.type,
+                type: this.type,            
                 image: this.image
             })
             this.$router.push({  name: 'Info Carte', params: { id: this.$route.params.id } });
@@ -70,7 +75,7 @@ export default {
     <BigCard
       :cardTitle= json?.name
       :cardImg= json?.image
-      :cardImgAlt= "alt + json?.name"
+      :cardImgAlt= json?.name
       :cardText= json?.desc
       :cardType= json?.type
       :cardPrice= json?.price
@@ -94,7 +99,7 @@ export default {
                     <option>Dieu</option>
                     <option>Personnage</option>
                 </select>
-                <input type="text" class="form-control" :placeholder=json?.price v-model="price">
+                <input type="number" class="form-control" :placeholder=json?.price v-model="price">
                 <input type="text" class="form-control" :placeholder=json?.image v-model="image">
                 <button class="btn btn-primary" type="submit">Submit</button>
             </form>
